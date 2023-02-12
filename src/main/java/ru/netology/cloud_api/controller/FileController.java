@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.netology.cloud_api.dto.FileResponse;
 import ru.netology.cloud_api.entity.File;
 import ru.netology.cloud_api.service.fileservice.FileService;
 import ru.netology.cloud_api.service.authservice.AuthService;
@@ -14,7 +13,6 @@ import ru.netology.cloud_api.service.userservice.UserService;
 
 import javax.validation.constraints.NotBlank;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -56,7 +54,6 @@ public class FileController {
     public Object showSavedFiles(@RequestHeader("auth-token") String authToken, @RequestParam("limit") int limit) {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         var user = userService.getUserByLogin(login);
-        List<FileResponse> list = fileService.show(login,limit);
         if (user != null) {
             return fileService.show(login, limit);
         }

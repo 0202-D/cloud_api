@@ -13,6 +13,7 @@ import ru.netology.cloud_api.entity.UserDB;
 public interface UserRepository extends JpaRepository<UserDB,Integer> {
     @NotNull UserDB save(@NotNull UserDB userDB);
     @Query("update UserDB  set token=null where token = :token")
+    @Modifying
     void removeToken(String token);
     UserDB findByLogin(String login);
     @Modifying
