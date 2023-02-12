@@ -11,6 +11,7 @@ import ru.netology.cloud_api.dao.UserRepository;
 import ru.netology.cloud_api.dto.FileResponse;
 import ru.netology.cloud_api.entity.File;
 import ru.netology.cloud_api.entity.UserDB;
+import ru.netology.cloud_api.exception.IncorrectDataException;
 import ru.netology.cloud_api.service.authservice.AuthServiceImpl;
 
 import java.io.IOException;
@@ -61,7 +62,7 @@ public class FileServiceImpl implements FileService {
     public File getFile(String filename) {
         Optional<File> optionalFile = filesRepository.findByName(filename);
         if (optionalFile.isEmpty()) {
-            throw new RuntimeException("File not found");
+            throw new IncorrectDataException("Файлпа с таким именем не существует");
         }
         return optionalFile.get();
     }
@@ -70,7 +71,7 @@ public class FileServiceImpl implements FileService {
     public File updateFileName(String fileName, String newName) {
         Optional<File> optionalFile = filesRepository.findByName(fileName);
         if (optionalFile.isEmpty()) {
-            throw new RuntimeException("File not found");
+            throw new IncorrectDataException("Файлпа с таким именем не существует");
         }
         File file = optionalFile.get();
         file.setName(newName);
