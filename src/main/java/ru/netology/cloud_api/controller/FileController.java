@@ -26,10 +26,10 @@ public class FileController {
     final UserService userService;
 
 
-    public FileController(AuthService authService, UserService userService,FileService fileService) {
+    public FileController(AuthService authService, UserService userService, FileService fileService) {
         this.authService = authService;
         this.userService = userService;
-        this.fileService=fileService;
+        this.fileService = fileService;
 
     }
 
@@ -53,11 +53,7 @@ public class FileController {
     @GetMapping("/list")
     public Object showSavedFiles(@RequestHeader("auth-token") String authToken, @RequestParam("limit") int limit) {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
-        var user = userService.getUserByLogin(login);
-        if (user != null) {
-            return fileService.show(login, limit);
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("unauthorized attempt to access files");
+        return fileService.show(login, limit);
     }
 
     @PutMapping("/file")

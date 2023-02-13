@@ -1,7 +1,5 @@
 package ru.netology.cloud_api.service.fileservice;
 
-import javassist.NotFoundException;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +8,6 @@ import ru.netology.cloud_api.dao.FilesRepository;
 import ru.netology.cloud_api.dao.UserRepository;
 import ru.netology.cloud_api.dto.FileResponse;
 import ru.netology.cloud_api.entity.File;
-import ru.netology.cloud_api.entity.UserDB;
 import ru.netology.cloud_api.exception.IncorrectDataException;
 import ru.netology.cloud_api.service.authservice.AuthServiceImpl;
 
@@ -62,7 +59,7 @@ public class FileServiceImpl implements FileService {
     public File getFile(String filename) {
         Optional<File> optionalFile = filesRepository.findByName(filename);
         if (optionalFile.isEmpty()) {
-            throw new IncorrectDataException("Файлпа с таким именем не существует");
+            throw new IncorrectDataException("Файла с таким именем не существует");
         }
         return optionalFile.get();
     }
@@ -71,7 +68,7 @@ public class FileServiceImpl implements FileService {
     public File updateFileName(String fileName, String newName) {
         Optional<File> optionalFile = filesRepository.findByName(fileName);
         if (optionalFile.isEmpty()) {
-            throw new IncorrectDataException("Файлпа с таким именем не существует");
+            throw new IncorrectDataException("Файла с таким именем не существует");
         }
         File file = optionalFile.get();
         file.setName(newName);

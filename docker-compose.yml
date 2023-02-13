@@ -1,6 +1,9 @@
-version: '3'
+version: '3.7'
 services:
   app:
+    container_name: cloud_api
+    image: cloud_api
+
     build:
       context: .
     ports:
