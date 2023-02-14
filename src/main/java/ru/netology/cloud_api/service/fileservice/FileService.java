@@ -1,11 +1,9 @@
 package ru.netology.cloud_api.service.fileservice;
-
-import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.netology.cloud_api.dto.FileResponse;
 import ru.netology.cloud_api.entity.File;
-import ru.netology.cloud_api.entity.UserDB;
+
 
 import java.io.IOException;
 import java.util.List;
