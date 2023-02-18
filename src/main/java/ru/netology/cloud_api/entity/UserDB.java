@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users", schema = "cloud")
+@Table(name = "users")
 public class UserDB implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

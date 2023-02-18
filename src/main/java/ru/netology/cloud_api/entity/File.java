@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Builder
 @Setter
 @ToString
-@Table(name = "files", schema = "cloud")
+@Table(name = "files")
 public class File implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
