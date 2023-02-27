@@ -14,7 +14,8 @@ import ru.netology.cloud_api.service.userservice.UserService;
 @RestController
 public class AuthController {
     private final JwtTokenUtil jwtTokenUtil;
-private final AuthService authService;
+
+    private final AuthService authService;
 
     private final UserService userService;
 
@@ -39,6 +40,7 @@ private final AuthService authService;
         }
         return ResponseEntity.status(400).body("Bad credentials");
     }
+
     @PostMapping("/logout")
     public ResponseEntity<?> logout(@RequestHeader("auth-token") String authToken) {
         authService.logoutUser(authToken);

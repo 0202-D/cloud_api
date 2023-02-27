@@ -27,7 +27,7 @@ public class File implements Serializable {
     private Long size;
 
     @Column(name = "create_date")
-    LocalDate createDate;
+    private LocalDate createDate;
 
     @Column(name = "content")
     private byte [] data;

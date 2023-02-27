@@ -13,7 +13,6 @@ public interface FilesRepository extends JpaRepository<File, Integer> {
 
     Optional<File> findByName(String name);
 
-
     void removeFileByName(String fileName);
 
     Optional<List<File>> findAllFilesByUser(UserDB user);

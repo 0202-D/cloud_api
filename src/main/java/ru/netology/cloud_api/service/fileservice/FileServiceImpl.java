@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class FileServiceImpl implements FileService {
-    final
+    private final
     AuthServiceImpl authService;
-    final
+    private final
     FilesRepository filesRepository;
-    final
+    private final
     UserRepository userRepository;
 
     public FileServiceImpl(FilesRepository filesRepository, AuthServiceImpl authService, UserRepository userRepository) {

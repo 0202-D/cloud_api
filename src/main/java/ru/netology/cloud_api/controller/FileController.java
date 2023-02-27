@@ -16,13 +16,14 @@ import java.util.Map;
 
 @RestController
 public class FileController {
-    final
+    private final
     AuthService authService;
 
-    final
+    private final
     FileService fileService;
 
-    final UserService userService;
+    private final
+    UserService userService;
 
 
     public FileController(AuthService authService, UserService userService, FileService fileService) {
